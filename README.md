@@ -45,32 +45,37 @@ Then
 - **backend.tf** - used to store our tfstate file in S3 bucket. First of all , you have to create manually S3 bucket ,give uniq name and enable bucket versioning  then connect with terraform with those backend S3 code written in backend.tf file change name of the bucket to your name if you want. 
 
 - Then run command:
-:terraform init  
+
+:**terraform init**
+
 - If you want to add or do modification in terraform backend s3 code after creation of a code .You have to run command:
-:terraform init -migrate state
+
+:**terraform init -migrate-state**
 
 - At the end run command:
 :[make ohio] 
    - you can run any make commands, it depends on your choice. 
 
-** Below action the same for both option 
-** - You will wait approximately 12-14 minutes , then check Ohio region, there you will find EC2 instance, VPC with all it`s components and RDS will be runining and available for check.
+**Below 3 step for chechking of our wordpress appplication are the same for both option**
+**3 STEP CHECKING**
+1 - You will wait approximately 12-14 minutes , then check Ohio region, there you will find EC2 instance, VPC with all it`s components and RDS will be runining and available for check.
 
-- copy public ip of instance and go to your browser -enter 
+2 - copy public ip of instance and go to your browser -enter 
 
--WORDPRESS application will be installed, use all values from terraform.tfvars (db_name,username,password) and     enpoint of RDS to open Wordpress , then on the second filling page write any names of site , username, password and any email adress but remember your username and password entered, you will use it to sign in to Wordpress website. 
+- WORDPRESS application will be installed, use all values from terraform.tfvars (db_name,username,password) and     enpoint of RDS to open Wordpress , then on the second filling page write any names of site , username, password and any email adress but remember your username and password entered, you will use it to sign in to Wordpress website. 
 
-- go to AWS EC2 console, connect to your instance ,connect with instance through connect then run command:
+3 - go to AWS EC2 console, connect to your instance ,connect with instance through connect then run command:
 
-: mysql -h endpoint of database -P 3306 -u username -p     ENTER
+: **mysql -h endpoint of database -P 3306 -u username -p**     ENTER
+
 - password will be asked , use password that was used in db_instance(RDS) creation.
 - msql > is succesfully opened 
-**
 
 
 
 
-                                      **2nd option**
+
+                                       **2nd option**
 
 - Open a new folder in Visual Code with any name ex: “Module test” , create your own **main.tf** file ,copy paste **gitignore** to your folder. 
 - To **main.tf** file copy paste bellowing USAGE and run:
