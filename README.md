@@ -2,13 +2,13 @@
 Installing-Wordpress-AWS_Terraform
 
 
-**main.tf** - includes provider, VPC, 3 subnets (2 public and 1 private ones), route tables and its subnet associations, internet gateway, NAT gateway with allocating elastic IP. In this step we are also opening necessary ports like 22,80,3306 by creating 2 security groups for RDS and EC2 instance  with Wordpress application and mariadb database
+- **main.tf** - includes provider, VPC, 3 subnets (2 public and 1 private ones), route tables and its subnet associations, internet gateway, NAT gateway with allocating elastic IP. In this step we are also opening necessary ports like 22,80,3306 by creating 2 security groups for RDS and EC2 instance  with Wordpress application and mariadb database
 
-**vars.tf** - all variables and their values that are used in our Project1 
+- **vars.tf** - all variables and their values that are used in our Project1 
 
-# Then 
+Then 
 
--Create [3 .tfvars] files under the regions folder **ohio.tfvars**, **virginia.tfvars** and 1 ./tfvars file in terms of root folder/**terraform.tfvars**:
+- Create [3 .tfvars] files under the regions folder **ohio.tfvars**, **virginia.tfvars** and 1 ./tfvars file in terms of root folder/**terraform.tfvars**:
 
 -for ohio.tfvars
 
@@ -51,9 +51,10 @@ Installing-Wordpress-AWS_Terraform
 - You will wait approximately 12-14 minutes , then check Ohio region, there you will find EC2 instance, VPC with all it`s components and RDS will be runining and available for check.
 
 - copy public ip of instance and go to your browser -enter 
+
 -WORDPRESS application will be installed, use all values from terraform.tfvars (db_name,username,password) and     enpoint of RDS to open Wordpress , then write any names of site , username, password and any email adress but remember your username and password entered, you will use it to sign in to Wordpress website. 
 
-go to AWS EC2 console, connect to your instance ,connect with instance through connect then run command:
+- go to AWS EC2 console, connect to your instance ,connect with instance through connect then run command:
 
 : mysql -h endpoint of database -P 3306 -u username -p     ENTER
 - password will be asked , use password that was used in db_instance(RDS) creation.
