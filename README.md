@@ -61,10 +61,10 @@ Then
 - msql > is succesfully opened 
 
 
-
+```hcl
 module "group1-wordpress" {
   source  = "aynurose/group1-wordpress/aws"
-  version = "0.0.1"
+  version = "0.0.2"
   region = "us-east-2"
     vpc_cidr = "10.0.0.0/16"
     public1_cidr = "10.0.1.0/24"
@@ -82,7 +82,7 @@ module "group1-wordpress" {
   ssh_key = "~/.ssh/id_rsa.pub"
   ssh_priv_key = "~/.ssh/id_rsa"
 }
-
+```
 
 
 
