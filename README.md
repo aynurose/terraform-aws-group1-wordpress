@@ -57,7 +57,9 @@ Then
    - you can run any make commands, it depends on your choice. 
 
 **Below 3 step for chechking of our wordpress appplication are the same for both option**
+
 **3 STEP CHECKING**
+
 1 - You will wait approximately 12-14 minutes , then check Ohio region, there you will find EC2 instance, VPC with all it`s components and RDS will be runining and available for check.
 
 2 - copy public ip of instance and go to your browser -enter 
