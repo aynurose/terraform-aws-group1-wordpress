@@ -1,6 +1,11 @@
 # terraform-aws-group1-wordpress
-Installing-Wordpress-AWS_Terraform
+Installing-Wordpress-AWS_Terraform 
+Group1 (Olga, Natalia, Aigerim, Aynura, Anton)                        
 
+
+- You can copy paste all .tf files from github account or just test by using module which is given as a 2nd option bellow and simplifies the task. 
+                                    
+                                    ##1st option
 
 - **main.tf** - includes provider, VPC, 3 subnets (2 public and 1 private ones), route tables and its subnet associations, internet gateway, NAT gateway with allocating elastic IP. In this step we are also opening necessary ports like 22,80,3306 by creating 2 security groups for RDS and EC2 instance  with Wordpress application and mariadb database
 
@@ -48,7 +53,8 @@ Then
 :[make ohio] 
    - you can run any make commands, it depends on your choice. 
 
-- You will wait approximately 12-14 minutes , then check Ohio region, there you will find EC2 instance, VPC with all it`s components and RDS will be runining and available for check.
+** Below action the same for both option 
+** - You will wait approximately 12-14 minutes , then check Ohio region, there you will find EC2 instance, VPC with all it`s components and RDS will be runining and available for check.
 
 - copy public ip of instance and go to your browser -enter 
 
@@ -59,30 +65,88 @@ Then
 : mysql -h endpoint of database -P 3306 -u username -p     ENTER
 - password will be asked , use password that was used in db_instance(RDS) creation.
 - msql > is succesfully opened 
+**
 
+
+
+
+                                   ##2nd option
+
+- Open a new folder in Visual Code with any name ex: “Module test” , create your own **main.tf** file ,copy paste **gitignore** to your folder. 
+- To **main.tf** file copy paste bellowing USAGE and run:
+ : terraform init
+-	You will deal with :
+ 
+Warning: Backend configuration ignored
+│ 
+│   on .terraform/modules/ohio/backend.tf line 2, in terraform:
+│    2:   backend "s3" {
+│
+
+     The Warning: Backend configuration ignored implies that the module is not actually at the root and is being used incorrectly. You cannot interactively get input for module variables outside of the root module.  
+
+BUT SKIP IT, IT SHOULD WORK 
+    This is a warning rather than an error because it's sometimes convenient to temporarily call a root module as a child module for testing purposes, but this backend configuration block will have no effect.
+╵
+
+
+
+##USAGE 
 
 ```hcl
-module "group1-wordpress" {
+module "ohio" {
   source  = "aynurose/group1-wordpress/aws"
   version = "0.0.2"
   region = "us-east-2"
-    vpc_cidr = "10.0.0.0/16"
-    public1_cidr = "10.0.1.0/24"
-    public2_cidr = "10.0.2.0/24"
-    private1_cidr = "10.0.3.0/24"
-  region = "us-east-1"
-    vpc_cidr = "10.60.0.0/16"
-    public1_cidr = "10.60.1.0/24"
-    public2_cidr = "10.60.2.0/24"
-    private1_cidr = "10.60.3.0/24"
+  vpc_cidr = "10.0.0.0/16"
+  public1_cidr = "10.0.1.0/24"
+  public2_cidr = "10.0.2.0/24"
+  private1_cidr = "10.0.3.0/24"
   username = "aynurka"
   password = "aynura12345"
   dbname = "wordpressdb"
-  stack = "group1"
-  ssh_key = "~/.ssh/id_rsa.pub"
-  ssh_priv_key = "~/.ssh/id_rsa"
+}
+
+module "virginia" {
+  source  = "aynurose/group1-wordpress/aws"
+  version = "0.0.2"
+  region = "us-east-1"
+  vpc_cidr = "10.60.0.0/16"
+  public1_cidr = "10.60.1.0/24"
+  public2_cidr = "10.60.2.0/24"
+  private1_cidr = "10.60.3.0/24"
+  username = "aynurka"
+  password = "aynura12345"
+  dbname = "wordpressdb"
 }
 ```
+
+
+
+    You can use terraform to target a certain module or two modules will be creating at the same time, depends on you.
+
+-For one module , run commands:
+: terraform apply -target module.ohio        (or ……..module.virginia)
+: terraform destroy -target module.ohio    (or ……..module.virginia)
+
+
+-For multiple modules:
+: terraform apply -target module.ohio -target virginia 
+To destroy it , run :
+ : terraform destroy -target module.ohio -target virginia 
+
+
+
+
+
+
+  
+
+
+
+
+
+
 
 
 
