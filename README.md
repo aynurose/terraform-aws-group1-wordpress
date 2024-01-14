@@ -20,11 +20,11 @@ Then
 
 -for virginia.tfvars
 
-    region = "us-east-2"
-    vpc_cidr = "10.0.0.0/16"
-    public1_cidr = "10.0.1.0/24"
-    public2_cidr = "10.0.2.0/24"
-    private1_cidr = "10.0.3.0/24"
+    region = "us-east-1"
+    vpc_cidr = "10.60.0.0/16"
+    public1_cidr = "10.60.1.0/24"
+    public2_cidr = "10.60.2.0/24"
+    private1_cidr = "10.60.3.0/24"
 
 - for terraform.tfvars.
 
