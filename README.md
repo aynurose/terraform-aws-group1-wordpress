@@ -31,7 +31,7 @@ Then
     public2_cidr = "10.60.2.0/24"
     private1_cidr = "10.60.3.0/24"
 
-- for terraform.tfvars.
+-for terraform.tfvars.
 
     username = "aynurka"
     password = "aynura12345"
