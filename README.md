@@ -5,7 +5,7 @@ Group1 (Olga, Natalia, Aigerim, Aynura, Anton)
 
 - You can copy paste all .tf files from github account or just test by using module which is given as a 2nd option bellow and simplifies the task. 
                                     
-                                    **1st option**
+**1st option**
 
 - **main.tf** - includes provider, VPC, 3 subnets (2 public and 1 private ones), route tables and its subnet associations, internet gateway, NAT gateway with allocating elastic IP. In this step we are also opening necessary ports like 22,80,3306 by creating 2 security groups for RDS and EC2 instance  with Wordpress application and mariadb database
 
@@ -70,11 +70,13 @@ Then
 
 
 
-                                   **2nd option**
+**2nd option**
 
 - Open a new folder in Visual Code with any name ex: “Module test” , create your own **main.tf** file ,copy paste **gitignore** to your folder. 
 - To **main.tf** file copy paste bellowing USAGE and run:
- : terraform init
+ 
+ : **terraform init**
+ 
 -	You will deal with :
  
 Warning: Backend configuration ignored
@@ -126,14 +128,19 @@ module "virginia"
 -You can use terraform to target a certain module or two modules will be creating at the same time, depends on you.
 
 - For one module , run commands:
- : terraform apply -target module.ohio        (or ……..module.virginia)
- : terraform destroy -target module.ohio    (or ……..module.virginia)
+
+ : **terraform apply -target module.ohio**        (or ……..module.virginia)
+ 
+ : **terraform destroy -target module.ohio**    (or ……..module.virginia)
 
 
 - For multiple modules:
- : terraform apply -target module.ohio -target virginia 
+
+ : **terraform apply -target module.ohio -target virginia** 
+
 - To destroy it , run :
- : terraform destroy -target module.ohio -target virginia 
+
+ : **terraform destroy -target module.ohio -target virginia** 
 
 
 
