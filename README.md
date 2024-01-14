@@ -52,7 +52,7 @@ Then
 
 - copy public ip of instance and go to your browser -enter 
 
--WORDPRESS application will be installed, use all values from terraform.tfvars (db_name,username,password) and     enpoint of RDS to open Wordpress , then write any names of site , username, password and any email adress but remember your username and password entered, you will use it to sign in to Wordpress website. 
+-WORDPRESS application will be installed, use all values from terraform.tfvars (db_name,username,password) and     enpoint of RDS to open Wordpress , then on the second filling page write any names of site , username, password and any email adress but remember your username and password entered, you will use it to sign in to Wordpress website. 
 
 - go to AWS EC2 console, connect to your instance ,connect with instance through connect then run command:
 
